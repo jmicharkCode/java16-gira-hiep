@@ -1,10 +1,20 @@
 package cybersoft.javabackend.java16girahiep.role.dto;
 
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
+import javax.persistence.MappedSuperclass;
+
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+
+
 @Setter
+@Getter
+@NoArgsConstructor
+@SuperBuilder
+@MappedSuperclass
 public class GiraRoleDTO {
 	private String code;
 	private String description;
