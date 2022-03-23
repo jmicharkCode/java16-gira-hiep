@@ -1,5 +1,6 @@
 package cybersoft.javabackend.java16girahiep.role.repository;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -19,11 +20,11 @@ public class GiraRoleRepositoryTest {
 	@Test
 	public void shouldNotInsertRole() {
 		GiraRole role = GiraRole.builder()
-							.code("FOUR")
-							.description(null)
+							.code("FIVEH")
+							.description("Description")
 							.build();
 		
-		assertThrows(Exception.class, () -> repository.save(role));
+		assertDoesNotThrow(() -> repository.save(role));
 	}
 	
 }
