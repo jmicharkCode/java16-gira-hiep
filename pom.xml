@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>cybersoft.javabackend</groupId>
-	<artifactId>java16-gira-gv</artifactId>
+	<artifactId>java16-gira-hiep</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>java16-gira-gv</name>
+	<name>java16-gira-hiep</name>
 	<description>Gira Application For Education Purpose</description>
 	<properties>
 		<java.version>17</java.version>
@@ -49,6 +49,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
 		    <groupId>io.jsonwebtoken</groupId>

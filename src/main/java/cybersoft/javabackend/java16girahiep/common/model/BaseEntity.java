@@ -2,8 +2,8 @@ package cybersoft.javabackend.java16girahiep.common.model;
 
 import java.io.Serializable;
 
+
 import java.time.LocalDateTime;
-import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.GeneratedValue;
@@ -17,8 +17,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import cybersoft.javabackend.java16girahiep.role.model.GiraGroup;
-import cybersoft.javabackend.java16girahiep.role.model.GiraRole;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
