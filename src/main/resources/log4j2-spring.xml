@@ -25,7 +25,7 @@
 		<Logger level = "debug" name = "cybersoft.javabackend.java16girahiep">
 		</Logger>
 		
-		<logger level = "debug" name = "org.springframework.boot">
+		<logger level = "info" name = "org.springframework.boot">
 		</logger>
 	</Loggers>
 </Configuration>
