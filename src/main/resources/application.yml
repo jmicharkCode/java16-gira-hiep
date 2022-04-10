@@ -19,10 +19,4 @@ spring:
   flyway:
     enabled: true
     driver-class-name: org.postgresql.Driver
-    baseline-on-migrate: true
-    
-    
-logging:
-  level:
-    root: info
-    'cybersoft.javabackend.java16girahiep': debug
+    baseline-on-migrate: true    
