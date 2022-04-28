@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+logs/12-04-2022/gira-log-12-04-2022-1.log.gz
+*.gz
+*.logs
