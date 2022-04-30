@@ -62,6 +62,7 @@ public class GiraRoleServiceImpl implements GiraRoleService{
 		
 		currentRole.setDescription(dto.getDescription());
 		return repository.save(currentRole) ;
+    
 	}
 
 	@Cacheable("id")
@@ -70,5 +71,3 @@ public class GiraRoleServiceImpl implements GiraRoleService{
 		Optional<GiraRole> roleOpt = repository.findById(UUID.fromString(id));
 		return roleOpt.orElse(null);
 	}
-
-}
