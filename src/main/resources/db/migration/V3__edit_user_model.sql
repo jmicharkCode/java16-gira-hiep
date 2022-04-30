@@ -1,3 +1,4 @@
+
 CREATE TABLE gira_user (
 	ID VARCHAR ( 36 ) NOT NULL,
 	created_at 			TIMESTAMP,

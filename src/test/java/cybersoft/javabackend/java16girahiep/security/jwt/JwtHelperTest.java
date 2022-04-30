@@ -28,7 +28,7 @@ public class JwtHelperTest {
 		
 		Authentication auth = new UsernamePasswordAuthenticationToken(user, null, null);
 		
-		String jwt = helper.generateJwtToken(auth);
+		String jwt = helper.generateJwtToken(user.getUsername());
 		
 		assertNotNull(jwt);
 	}

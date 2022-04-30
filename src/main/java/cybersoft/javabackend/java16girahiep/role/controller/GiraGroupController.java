@@ -42,6 +42,17 @@ public class GiraGroupController {
 		return ResponseHelper.getResponse(groups, HttpStatus.OK);
 	}
 	
+	@GetMapping("{group-id}")
+	public Object findGroupById(@PathVariable("group-id") String groupId) {
+		GiraGroupWithRolesDTO group = service.findById(groupId);
+		
+		if(group == null) {
+			return ResponseHelper.getErrorResponse("Group is not existed", HttpStatus.BAD_REQUEST);
+		}
+		
+		return ResponseHelper.getResponse(group, HttpStatus.OK);
+	}
+	
 	@PostMapping
 	public Object createNewGroup(@Valid @RequestBody GiraGroupDTO dto,
 							BindingResult result) {

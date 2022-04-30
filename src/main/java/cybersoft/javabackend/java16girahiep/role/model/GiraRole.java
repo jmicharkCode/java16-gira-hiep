@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import cybersoft.javabackend.java16girahiep.common.model.BaseEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,12 +28,13 @@ import lombok.experimental.SuperBuilder;
 @Table( name = "gira_role")
 public class GiraRole extends BaseEntity{
 	// constraint: 5 character
-	@Size(min = 5, max = 5)
+	@Size(min = 5, max = 100)
 	private String code;
 	
 	@NotBlank
 	private String description;
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy = "roles")
 	private Set<GiraGroup> groups = new LinkedHashSet();
 	
