@@ -32,7 +32,8 @@ public class GiraRoleController {
 	
 	@GetMapping
 	public Object findAllRoles() {
-		List<GiraRole> roles = service.findAllEntity();
+		List<GiraRoleDTO> roles = service.findAllEntity();
+    
 		return new ResponseEntity<>(roles, HttpStatus.OK);
 	}
 	
@@ -76,4 +77,4 @@ public class GiraRoleController {
 		
 		return ResponseHelper.getResponse(updatedRole, HttpStatus.OK);
 	}
-}
+

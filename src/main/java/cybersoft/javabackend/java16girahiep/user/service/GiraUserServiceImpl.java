@@ -1,10 +1,19 @@
 package cybersoft.javabackend.java16girahiep.user.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import cybersoft.javabackend.java16girahiep.role.dto.GiraRoleDTO;
+import cybersoft.javabackend.java16girahiep.role.mapper.GiraRoleMapper;
+import cybersoft.javabackend.java16girahiep.role.model.GiraGroup;
+import cybersoft.javabackend.java16girahiep.role.model.GiraRole;
 import cybersoft.javabackend.java16girahiep.user.dto.GiraUserDTO;
+import cybersoft.javabackend.java16girahiep.user.dto.GiraUserRolesDTO;
+import cybersoft.javabackend.java16girahiep.user.dto.GiraUserWithRolesDTO;
 import cybersoft.javabackend.java16girahiep.user.mapper.GiraUserMapper;
 import cybersoft.javabackend.java16girahiep.user.model.GiraUser;
 import cybersoft.javabackend.java16girahiep.user.repository.GiraUserRepository;
@@ -30,5 +39,50 @@ public class GiraUserServiceImpl implements GiraUserService{
 		
 		return GiraUserMapper.INSTANCE.toDTO(newUser);
 	}
+
+	@Override
+	public List<GiraUserRolesDTO> findUserWithRolesByUsername(String username) {
+		return repository.findUserWithRolesByUsername(username);
+	}
+	
+	@Override
+	public GiraUserWithRolesDTO findUserWithRolesByUsernameUsingJoin(String username) {
+		GiraUser user = repository.findUserRolesByUsernameEntityGraph(username);
+		
+		if (user == null)
+			return null;
+		
+		return GiraUserWithRolesDTO.builder()
+				.id(user.getId())	
+				.username(user.getUsername())
+				.displayName(user.getDisplayName())
+				.email(user.getEmail())
+				.roles(getRolesFromUser(user))
+				.build();
+	}
+
+	protected List<GiraRoleDTO> getRolesFromUser(GiraUser user) {
+		List<GiraRoleDTO> roles = new ArrayList<GiraRoleDTO>();
+		
+		for (GiraGroup group : user.getGroups()) {
+			group.getRoles().forEach((role) -> {
+				if (isRoleExisted(roles, role))
+					return;
+				
+				roles.add(GiraRoleMapper.INSTANCE.toGiraRoleDTO(role));
+			});
+		}
+		
+		return roles;
+	}
+
+	protected boolean isRoleExisted(List<GiraRoleDTO> roles, GiraRole role) {
+		for(GiraRoleDTO dto: roles) {
+			if(dto.getCode().equals(role.getCode()))
+				return true;
+		}
+		return false;
+	}
+
 
 }

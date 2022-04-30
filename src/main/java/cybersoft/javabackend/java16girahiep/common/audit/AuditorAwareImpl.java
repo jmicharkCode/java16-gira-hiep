@@ -23,8 +23,10 @@ public class AuditorAwareImpl implements AuditorAware<String>{
 		}
 		
 		UserDetails currentAuditor = (UserDetails) auth.getPrincipal();
+    
 		return Optional.ofNullable(currentAuditor.getUsername());
 	}
 	
+  
+  
 
-}
