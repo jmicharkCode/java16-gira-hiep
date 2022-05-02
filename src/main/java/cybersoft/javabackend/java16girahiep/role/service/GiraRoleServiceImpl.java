@@ -71,3 +71,5 @@ public class GiraRoleServiceImpl implements GiraRoleService{
 		Optional<GiraRole> roleOpt = repository.findById(UUID.fromString(id));
 		return roleOpt.orElse(null);
 	}
+	
+}

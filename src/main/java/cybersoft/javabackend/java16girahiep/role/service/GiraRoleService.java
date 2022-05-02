@@ -14,3 +14,5 @@ public interface GiraRoleService {
 	GiraRole update(UUID id, @Valid GiraRoleDTO dto);
   
 	GiraRole findById(String id);
+	
+}
