@@ -77,4 +77,6 @@ public class GiraRoleController {
 		
 		return ResponseHelper.getResponse(updatedRole, HttpStatus.OK);
 	}
+	
+}
 

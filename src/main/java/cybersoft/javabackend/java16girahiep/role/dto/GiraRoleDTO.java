@@ -7,6 +7,7 @@ import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +16,7 @@ import lombok.experimental.SuperBuilder;
 
 @Setter
 @Getter
+@Builder
 public class GiraRoleDTO {
 	private UUID id;
 	
